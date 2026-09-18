@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "question": "What is React?",
+    "answer": "React is a JavaScript library used for building user interfaces, especially single-page applications. It allows developers to create reusable components and efficiently update the UI.",
+    "category": "React",
+    "difficulty": "Easy",
+    "tags": ["React", "Basics"],
+    "completed": false,
+    "favorite": false
+  },
+  {
+    "id": 2,
+    "question": "What is JSX?",
+    "answer": "JSX stands for JavaScript XML. It allows us to write HTML-like syntax inside JavaScript and is commonly used with React to describe the UI.",
+    "category": "React",
+    "difficulty": "Easy",
+    "tags": ["React", "JSX"],
+    "completed": false,
+    "favorite": false
+  },
+  {
+    "id": 3,
+    "question": "What is the Virtual DOM?",
+    "answer": "The Virtual DOM is a lightweight JavaScript representation of the real DOM. React uses it to efficiently determine what parts of the UI need to be updated.",
+    "category": "React",
+    "difficulty": "Medium",
+    "tags": ["React", "DOM"],
+    "completed": false,
+    "favorite": false
+  },
+  {
+    "id": 4,
+    "question": "What is useState in React?",
+    "answer": "useState is a React Hook that allows functional components to create and manage state.",
+    "category": "React",
+    "difficulty": "Easy",
+    "tags": ["Hooks", "State"],
+    "completed": false,
+    "favorite": false
+  },
+  {
+    "id": 5,
+    "question": "What is useEffect?",
+    "answer": "useEffect is a React Hook used to perform side effects in functional components, such as API calls, subscriptions, timers, and updating the document title.",
+    "category": "React",
+    "difficulty": "Medium",
+    "tags": ["Hooks", "useEffect"],
+    "completed": false,
+    "favorite": false
+  }
+]

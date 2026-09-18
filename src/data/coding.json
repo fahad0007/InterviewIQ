@@ -1,0 +1,24 @@
+[
+  {
+    "id": 1,
+    "question": "Reverse a string without using the reverse() method.",
+    "answer": "You can iterate through the string from the last character to the first and construct a new string.",
+    "code": "function reverseString(str) {\n  let result = '';\n\n  for (let i = str.length - 1; i >= 0; i--) {\n    result += str[i];\n  }\n\n  return result;\n}",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "tags": ["String", "Loop"],
+    "completed": false,
+    "favorite": false
+  },
+  {
+    "id": 2,
+    "question": "Find the largest number in an array.",
+    "answer": "Loop through the array and keep track of the largest value found so far.",
+    "code": "function findLargest(arr) {\n  let largest = arr[0];\n\n  for (let num of arr) {\n    if (num > largest) {\n      largest = num;\n    }\n  }\n\n  return largest;\n}",
+    "category": "JavaScript",
+    "difficulty": "Easy",
+    "tags": ["Array", "Logic"],
+    "completed": false,
+    "favorite": false
+  }
+]

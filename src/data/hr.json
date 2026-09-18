@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "question": "Tell me about yourself.",
+    "answer": "Hi, I'm Fahad Ahmad Ansari. I'm a Front End Developer with over 2 years of professional experience in building responsive web applications using React. Currently, I'm working as a Front End React Developer at CodeScriptors. My responsibilities include developing reusable components, integrating APIs, implementing UI functionality, debugging issues, testing features, and improving the overall user experience.",
+    "category": "Introduction",
+    "difficulty": "Easy",
+    "tags": ["Introduction", "HR"],
+    "completed": false,
+    "favorite": false
+  },
+  {
+    "id": 2,
+    "question": "Explain your current project.",
+    "answer": "My current project is an online doctor consultant application. It has both doctor and patient modules. Patients can register, search for doctors based on specialization, check available time slots, and book appointments. Doctors can manage appointments and communicate with patients through video calls and chat within the application. My role includes working on the UI, API integration, search functionality, appointment-related features, and video call and chat interfaces.",
+    "category": "Project",
+    "difficulty": "Medium",
+    "tags": ["Project", "React"],
+    "completed": false,
+    "favorite": false
+  },
+  {
+    "id": 3,
+    "question": "Why are you looking for a change?",
+    "answer": "I'm looking for a change because I want to work on more challenging projects, improve my technical skills, and grow further as a React developer. I'm also looking for an environment where I can take more responsibility and contribute to larger projects.",
+    "category": "HR",
+    "difficulty": "Easy",
+    "tags": ["HR", "Career"],
+    "completed": false,
+    "favorite": false
+  },
+  {
+    "id": 4,
+    "question": "Why should we hire you?",
+    "answer": "I believe I would be a good fit because I have practical experience working with React, API integration, reusable components, responsive UI development, debugging, and feature implementation. I can understand requirements, work collaboratively with the team, and take ownership of my assigned tasks.",
+    "category": "HR",
+    "difficulty": "Medium",
+    "tags": ["HR", "Interview"],
+    "completed": false,
+    "favorite": false
+  }
+]
