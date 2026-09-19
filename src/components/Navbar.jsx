@@ -103,8 +103,8 @@ function Navbar({ mobile, handleMenu }) {
       {/* Logo */}
 
       <Link to="/" className="logo">
-        {/* <Menu size={28} className="mobile-menu" onClick={handleMenu} /> */}
-        <div className="logo-icon" onClick={handleMenu}>
+        <Menu size={28} className="mobile-menu" onClick={handleMenu} />
+        <div className="logo-icon">
           IQ
         </div>
 

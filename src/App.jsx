@@ -1,3 +1,4 @@
+
 import {
   BrowserRouter,
   Routes,
@@ -22,21 +23,19 @@ import Analytics from "./pages/Analytics";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
 
-
 import Admin from "./pages/Admin";
 import AdminRoute from "./components/AdminRoute";
+
 import { useState } from "react";
 
 
 function App() {
-
-
   return (
     <BrowserRouter>
 
       <Routes>
 
-        {/* Public */}
+        {/* Public Routes */}
 
         <Route
           path="/signup"
@@ -48,7 +47,8 @@ function App() {
           element={<Login />}
         />
 
-        {/* Protected */}
+
+        {/* Protected Routes */}
 
         <Route
           path="/*"
@@ -65,30 +65,44 @@ function App() {
   );
 }
 
+
 function AppLayout() {
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-   const [mobile, setMobile] = useState(false)
+  const handleMenu = () => {
+    setSidebarOpen((prev) => !prev);
+  };
 
-  const handleMenu  = ()=>{
-   setMobile((prev)=> !prev)
-  }
+  const closeSidebar = () => {
+    setSidebarOpen(false);
+  };
+
   return (
     <div className="app">
 
-      <Navbar mobile={mobile} handleMenu={handleMenu} />
+      <Navbar handleMenu={handleMenu} />
 
       <div className="app-layout">
 
-        <Sidebar mobile={mobile} handleMenu={handleMenu}/>
+        {/* Desktop Sidebar */}
+        <Sidebar />
+
+        {/* Mobile Sidebar */}
+        <Sidebar
+          mobile={true}
+          isOpen={sidebarOpen}
+          onClose={closeSidebar}
+        />
 
         <main className="main-content">
-
           <Routes>
+
             <Route path="/" element={<Dashboard />} />
 
             <Route path="/javascript" element={<Javascript />} />
 
             <Route path="/coding" element={<Coding />} />
+
             <Route path="/react" element={<ReactRound />} />
 
             <Route path="/hr" element={<HR />} />
@@ -112,15 +126,14 @@ function AppLayout() {
                 </AdminRoute>
               }
             />
+
           </Routes>
-
-
         </main>
 
       </div>
-
     </div>
   );
 }
+
 
 export default App;
