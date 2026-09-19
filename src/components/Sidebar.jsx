@@ -8,52 +8,60 @@ import {
   CheckCircle2,
   BarChart3,
   ShieldCheck,
-  Menu
 } from "lucide-react";
 import { FaReact } from "react-icons/fa";
 
-
 import { useEffect, useState } from "react";
-
 
 import { useAuth } from "../context/AuthContext";
 import { getUserRole } from "../services/userService";
 
-function Sidebar({mobile}) {
-  const { user } = useAuth();
+function Sidebar({ mobile = false, isOpen, onClose }) {
 
+  const { user } = useAuth();
   const [isAdmin, setIsAdmin] = useState(false);
 
   useEffect(() => {
     const checkRole = async () => {
+      if (!user) {
+        setIsAdmin(false);
+        return;
+      }
 
-      if (!user) return;
-
-      const role = await getUserRole(user.uid);
-
-      setIsAdmin(role === "admin");
-
+      try {
+        const role = await getUserRole(user.uid);
+        setIsAdmin(role === "admin");
+      } catch (error) {
+        console.error(error);
+      }
     };
 
     checkRole();
   }, [user]);
 
 
+  const handleLinkClick = () => {
+    if (mobile) {
+      onClose();
+    }
+  };
 
 
-  
-
-  return (
-    <aside className={mobile? "mobile-sidebar": "sidebar" } >
+  const sidebarContent = (
+    <>
       <div className="sidebar-section">
-        <p className="sidebar-title">PREPARATION</p>
+
+        <p className="sidebar-title">
+          PREPARATION
+        </p>
 
         <NavLink
           to="/"
+          end
+          onClick={handleLinkClick}
           className={({ isActive }) =>
             `sidebar-link ${isActive ? "active" : ""}`
           }
-          end
         >
           <LayoutDashboard size={18} />
           <span>Dashboard</span>
@@ -61,6 +69,7 @@ function Sidebar({mobile}) {
 
         <NavLink
           to="/javascript"
+          onClick={handleLinkClick}
           className={({ isActive }) =>
             `sidebar-link ${isActive ? "active" : ""}`
           }
@@ -71,6 +80,7 @@ function Sidebar({mobile}) {
 
         <NavLink
           to="/coding"
+          onClick={handleLinkClick}
           className={({ isActive }) =>
             `sidebar-link ${isActive ? "active" : ""}`
           }
@@ -81,6 +91,7 @@ function Sidebar({mobile}) {
 
         <NavLink
           to="/react"
+          onClick={handleLinkClick}
           className={({ isActive }) =>
             `sidebar-link ${isActive ? "active" : ""}`
           }
@@ -91,6 +102,7 @@ function Sidebar({mobile}) {
 
         <NavLink
           to="/hr"
+          onClick={handleLinkClick}
           className={({ isActive }) =>
             `sidebar-link ${isActive ? "active" : ""}`
           }
@@ -98,13 +110,19 @@ function Sidebar({mobile}) {
           <Users size={18} />
           <span>HR Round</span>
         </NavLink>
+
       </div>
 
+
       <div className="sidebar-section">
-        <p className="sidebar-title">MY PROGRESS</p>
+
+        <p className="sidebar-title">
+          MY PROGRESS
+        </p>
 
         <NavLink
           to="/favorites"
+          onClick={handleLinkClick}
           className={({ isActive }) =>
             `sidebar-link ${isActive ? "active" : ""}`
           }
@@ -115,6 +133,7 @@ function Sidebar({mobile}) {
 
         <NavLink
           to="/completed"
+          onClick={handleLinkClick}
           className={({ isActive }) =>
             `sidebar-link ${isActive ? "active" : ""}`
           }
@@ -125,6 +144,7 @@ function Sidebar({mobile}) {
 
         <NavLink
           to="/analytics"
+          onClick={handleLinkClick}
           className={({ isActive }) =>
             `sidebar-link ${isActive ? "active" : ""}`
           }
@@ -136,6 +156,7 @@ function Sidebar({mobile}) {
         {isAdmin && (
           <NavLink
             to="/admin"
+            onClick={handleLinkClick}
             className={({ isActive }) =>
               `sidebar-link ${isActive ? "active" : ""}`
             }
@@ -146,8 +167,38 @@ function Sidebar({mobile}) {
         )}
 
       </div>
+    </>
+  );
 
-    </aside>
+
+  // DESKTOP
+  if (!mobile) {
+    return (
+      <aside className="sidebar">
+        {sidebarContent}
+      </aside>
+    );
+  }
+
+
+  // MOBILE
+  return (
+    <>
+      {isOpen && (
+        <div
+          className="sidebar-overlay"
+          onClick={onClose}
+        />
+      )}
+
+      <aside
+        className={`mobile-sidebar ${
+          isOpen ? "mobile-sidebar-open" : ""
+        }`}
+      >
+        {sidebarContent}
+      </aside>
+    </>
   );
 }
 

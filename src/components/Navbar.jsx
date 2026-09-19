@@ -104,7 +104,7 @@ function Navbar({ mobile, handleMenu }) {
 
       <Link to="/" className="logo">
         <Menu size={28} className="mobile-menu" onClick={handleMenu} />
-        <div className="logo-icon">
+        <div className="logo-icon" >
           IQ
         </div>
 
