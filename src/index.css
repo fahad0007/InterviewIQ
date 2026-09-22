@@ -620,6 +620,9 @@ a {
   
 }
 
+.sidebar-title{
+   padding: 30px 12px 10px;
+}
 
 
   .main-content {
@@ -3533,9 +3536,7 @@ padding: 10px;
 
   box-shadow: 4px 0 20px rgba(0, 0, 0, 0.12);
 }
-.sidebar-title{
-   padding: 30px 12px 10px;
-}
+
 
 .mobile-sidebar-open {
   transform: translateX(0);
@@ -3617,6 +3618,7 @@ padding: 10px;
       z-index: 999;
   
 }
+
 }
 
 
