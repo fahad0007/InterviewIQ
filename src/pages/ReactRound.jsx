@@ -23,11 +23,17 @@ function ReactRound() {
 
   const { progress } = useProgress();
 
-  useEffect(() => {
+ useEffect(() => {
     const loadQuestions = async () => {
       try {
         const data = await getQuestionsByType("react");
-        setQuestions([...data].reverse());
+
+        // Firebase number ke according sort
+        const sortedData = [...data].sort(
+          (a, b) => Number(a.number) - Number(b.number)
+        );
+
+        setQuestions(sortedData);
 
       } catch (error) {
         console.error(

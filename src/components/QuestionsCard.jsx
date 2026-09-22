@@ -27,7 +27,7 @@ function QuestionCard({
       <div className="question-card-header">
 
         <div className="question-number">
-          #{String(question.number ).padStart(2, "0")}
+          #{String(question.number).padStart(2, "0")}
         </div>
 
         <div className="question-actions">

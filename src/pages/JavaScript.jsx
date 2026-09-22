@@ -27,7 +27,11 @@ useEffect(() => {
     try {
       const data = await getQuestionsByType("javascript");
 
-      setQuestions([...data].reverse());
+      const sortedData = [...data].sort(
+        (a, b) => Number(a.number) - Number(b.number)
+      );
+
+      setQuestions(sortedData);
     } catch (error) {
       console.error(
         "Error loading javascript questions:",

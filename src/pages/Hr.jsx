@@ -23,23 +23,29 @@ function HR() {
 
   const { progress } = useProgress();
 
-  useEffect(() => {
-    const loadQuestions = async () => {
-      try {
-        const data = await getQuestionsByType("hr");
-       setQuestions([...data].reverse());
-      } catch (error) {
-        console.error(
-          "Error loading HR questions:",
-          error
-        );
-      } finally {
-        setLoading(false);
-      }
-    };
+ useEffect(() => {
+  const loadQuestions = async () => {
+    try {
+      const data = await getQuestionsByType("hr");
 
-    loadQuestions();
-  }, []);
+      const sortedData = [...data].sort(
+        (a, b) => Number(a.number) - Number(b.number)
+      );
+
+      setQuestions(sortedData);
+
+    } catch (error) {
+      console.error(
+        "Error loading HR questions:",
+        error
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  loadQuestions();
+}, []);
 
   const categories = [
     "All",

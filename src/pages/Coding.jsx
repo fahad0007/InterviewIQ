@@ -24,23 +24,28 @@ function Coding() {
   const { progress } = useProgress();
 
   useEffect(() => {
-    const loadQuestions = async () => {
-      try {
-        const data = await getQuestionsByType("coding");
-        setQuestions([...data].reverse());
+  const loadQuestions = async () => {
+    try {
+      const data = await getQuestionsByType("javascript");
 
-      } catch (error) {
-        console.error(
-          "Error loading coding questions:",
-          error
-        );
-      } finally {
-        setLoading(false);
-      }
-    };
+      const sortedData = [...data].sort(
+        (a, b) => Number(a.number) - Number(b.number)
+      );
 
-    loadQuestions();
-  }, []);
+      setQuestions(sortedData);
+
+    } catch (error) {
+      console.error(
+        "Error loading javascript questions:",
+        error
+      );
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  loadQuestions();
+}, []);
 
   const categories = [
     "All",
