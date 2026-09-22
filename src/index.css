@@ -1346,7 +1346,7 @@ a {
 }
 .answer-box>p {
     margin: 0;
-    color: #334155;
+    color: var(--text-secondary);
     font-size: 16px;
     line-height: 1.8;
 }
