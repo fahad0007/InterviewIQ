@@ -34,15 +34,17 @@ function QuestionDetails() {
   const [showAnswer, setShowAnswer] = useState(false);
 
   // Load questions
-  useEffect(() => {
+ useEffect(() => {
   const loadQuestions = async () => {
     try {
       setLoading(true);
 
       const data = await getQuestionsByType(type);
 
-      // Keep questions in 1 → 2 → 3 order
-      const sortedData = [...data].reverse();
+      // Sort questions by question number: 1, 2, 3, 4...
+      const sortedData = [...data].sort(
+        (a, b) => Number(a.number) - Number(b.number)
+      );
 
       setQuestions(sortedData);
 
